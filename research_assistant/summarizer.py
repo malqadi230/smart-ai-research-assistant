@@ -11,19 +11,19 @@ SECTION_CHARS = 12_000
 SECTION_PROMPT = "Summarize this section of a research document in 5-8 concise bullet points, keeping key facts, numbers and conclusions."
 
 FINAL_SUMMARY_PROMPT = """Combine these section summaries into one research summary with the headings:
-## Overview
-## Key Findings
-## Methodology (if applicable)
-## Conclusions
+#### Overview
+#### Key Findings
+#### Methodology (if applicable)
+#### Conclusions
 Keep it factual and concise."""
 
 INSIGHTS_PROMPT = """You are given summaries of several research documents.
 Produce:
-## Common Themes
-## Points of Agreement
-## Contradictions or Differences
-## Gaps & Open Questions
-## Suggested Next Steps
+#### Common Themes
+#### Points of Agreement
+#### Contradictions or Differences
+#### Gaps & Open Questions
+#### Suggested Next Steps
 Reference documents by name."""
 
 

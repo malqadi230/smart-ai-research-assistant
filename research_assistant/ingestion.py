@@ -100,6 +100,11 @@ def split_text(text: str, chunk_size: int, overlap: int) -> list[str]:
         if end >= len(text):
             break
         start = max(end - overlap, start + 1)
+        # Don't start the next chunk mid-word: skip ahead to the next whitespace
+        if not text[start - 1].isspace():
+            gap = re.search(r"\s", text[start:end])
+            if gap:
+                start += gap.end()
     return chunks
 
 

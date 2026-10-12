@@ -14,3 +14,4 @@ demo video and the final report.
 | 7 | Follow-up questions like "what are its limitations?" retrieved irrelevant chunks because the search had no subject. | Added a query-rewriting step that turns follow-ups into standalone queries using the conversation history. |
 | 8 | Scanned PDFs have no text layer, so nothing could be indexed. | Detect pages without text, render them to images with pypdfium2, and transcribe them with the OpenAI vision model. |
 | 9 | Tesseract OCR needs a system install that Streamlit Cloud doesn't provide by default. | Used the vision capability of the existing OpenAI model instead: no extra install, one API. |
+| 10 | After deploying, some retrieved chunks started mid-word (e.g. "d sites…") because the overlap began at an arbitrary character. | The splitter now moves each chunk's start forward to the next word boundary; covered by a unit test. |

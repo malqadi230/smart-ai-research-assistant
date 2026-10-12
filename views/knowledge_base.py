@@ -32,10 +32,10 @@ docs = assistant.store.list_documents()
 if not docs:
     st.caption("No documents yet.")
 for name, n_chunks in docs.items():
-    col1, col2, col3 = st.columns([6, 2, 1])
+    col1, col2, col3 = st.columns([6, 2, 1], vertical_alignment="center")
     col1.write(f"📄 {name}")
     col2.caption(f"{n_chunks} chunks")
-    if col3.button("Delete", key=f"del-{name}"):
+    if col3.button("", icon=":material/delete:", key=f"del-{name}", help=f"Delete {name}"):
         assistant.store.delete_document(name)
         forget_summaries(name)
         st.rerun()

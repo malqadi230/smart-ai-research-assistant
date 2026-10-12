@@ -36,9 +36,9 @@ for msg in st.session_state.chat:
 pending = st.session_state.pop("pending_question", None)
 if not st.session_state.chat and not pending:
     st.caption("Try one of these to get started:")
-    cols = st.columns(len(EXAMPLE_QUESTIONS))
-    for col, example in zip(cols, EXAMPLE_QUESTIONS):
-        if col.button(example, width="stretch"):
+    cols = st.columns(2)
+    for i, example in enumerate(EXAMPLE_QUESTIONS):
+        if cols[i % 2].button(example, width="stretch"):
             st.session_state.pending_question = example
             st.rerun()
 

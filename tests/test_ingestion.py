@@ -18,6 +18,12 @@ def test_split_overlaps_consecutive_chunks():
     assert a[-30:].split()[-1] in b
 
 
+def test_split_never_starts_chunks_mid_word():
+    words = [f"word{i}" for i in range(400)]
+    for chunk in split_text(" ".join(words), chunk_size=200, overlap=60):
+        assert chunk.split()[0] in words
+
+
 def test_split_short_text_is_single_chunk():
     assert split_text("hello world", 1000, 200) == ["hello world"]
 
