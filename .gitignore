@@ -1,0 +1,16 @@
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Local vector database
+data/chroma_db/
+
+# Large media (upload the demo video to Drive separately)
+*.mp4
